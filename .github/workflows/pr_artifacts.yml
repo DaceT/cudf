@@ -19,19 +19,19 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
           
-#       - name: Pull artifacts
-#         env:
+      - name: Pull artifacts
+        env:
 #           PR_NUMBER: ${{ github.event.pull_request.number }}
-#           GITHUB_TOKEN: ${{ secrets.PAT }}
-#           GITHUB_REPOSITORY: ${{ github.event.repository.name }}
+          GITHUB_TOKEN: ${{ secrets.PAT }}
+          GITHUB_REPOSITORY: ${{ github.event.repository.name }}
 #           GITHUB_HEAD_REF: ${{ github.event.pull_request.head.ref }}
-#         run: python pull_artifacts.py 
+        run: python pull_artifacts.py 
         
-      - name: Download artifacts
-        uses: actions/download-artifact@v3
-        with:
-          name: static-site
-        need: cpp-build
+#       - name: Download artifacts
+#         uses: actions/download-artifact@v3
+#         with:
+#           name: static-site
+#         need: cpp-build
           
-      - name: Test artifact download
-        run: ls -R
+#       - name: Test artifact download
+#         run: ls -R
